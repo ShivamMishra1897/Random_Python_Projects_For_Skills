@@ -68,15 +68,15 @@ def getPlayerMove(playerTile, board):
 def isFull(board):
     for rowIndex in range(HEIGHT):
         for columnIndex in range(WIDTH):
-            if board[(WIDTH,HEIGHT)]==EMPTY_SPACE:
+            if board[(columnIndex,rowIndex)]==EMPTY_SPACE:
                 return False
     return True
 
 # to determine the winner there needs to be four tiles together
 def isWinner(playerTile,board):
     # check four tiles going right
-    for columnIndex in(WIDTH-3):
-        for rowIndex in (HEIGHT):
+    for columnIndex in range(WIDTH-3):
+        for rowIndex in range(HEIGHT):
             tile_1 = board[(columnIndex,rowIndex)]
             tile_2 = board[(columnIndex +1,rowIndex)]
             tile_3 = board[(columnIndex +2,rowIndex)]
@@ -85,8 +85,8 @@ def isWinner(playerTile,board):
                 return True
             
      # check four tiles going down
-    for columnIndex in(WIDTH):
-        for rowIndex in (HEIGHT-3):
+    for columnIndex in range(WIDTH):
+        for rowIndex in range(HEIGHT-3):
             tile_1 = board[(columnIndex,rowIndex)]
             tile_2 = board[(columnIndex,rowIndex +1)]
             tile_3 = board[(columnIndex,rowIndex +2)]
@@ -95,8 +95,8 @@ def isWinner(playerTile,board):
                 return True
             
     # check four tiles going right diagonal
-    for columnIndex in(WIDTH-3):
-        for rowIndex in (HEIGHT-3):
+    for columnIndex in range(WIDTH-3):
+        for rowIndex in range(HEIGHT-3):
             tile_1 = board[(columnIndex,rowIndex)]
             tile_2 = board[(columnIndex +1,rowIndex +1)]
             tile_3 = board[(columnIndex +2,rowIndex +2)]
@@ -105,8 +105,8 @@ def isWinner(playerTile,board):
                 return True
             
        # check four tiles going left diagonal
-    for columnIndex in(WIDTH-3):
-        for rowIndex in (HEIGHT-3):
+    for columnIndex in range(WIDTH-3):
+        for rowIndex in range(HEIGHT-3):
             tile_1 = board[(columnIndex +3,rowIndex)]
             tile_2 = board[(columnIndex +2,rowIndex +1)]
             tile_3 = board[(columnIndex +1,rowIndex +2)]
